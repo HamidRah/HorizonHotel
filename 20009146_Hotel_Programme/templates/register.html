@@ -1,0 +1,93 @@
+<!-- Hamidur Rahman: 20009146 -->
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <title>HORIZON HOTEL LOGIN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}" type="text/css">
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+        <link rel = "icon" href = "images/logo.png" type = "image/png">
+    </head>
+
+   <body>
+
+        
+        <!-- header -->
+        <header class = "header" id = "header">
+            <div class = "head-top">
+                <div class = "site-name">
+                    <span>HORIZON HOTELS</span>
+                </div>
+                <div class = "site-nav">
+                    <span id = "nav-btn">MENU <i class = "fas fa-bars"></i></span>
+                </div>
+            </div>
+
+        <!-- side navbar -->
+        <div class = "sidenav" id = "sidenav">
+            <span class = "cancel-btn" id = "cancel-btn">
+                <i class = "fas fa-times"></i>
+            </span>
+
+            <ul class = "navbar">
+                <li><a href = "/">Home</a></li>
+                <li><a href = "/#booking">Book</a></li>
+                <li><a href = "/#rooms">Rooms</a></li>
+                <li><a href = "/#about-us">About Us</a></li>
+            </ul>
+            <button class = "btn sign-up" onclick="location.href='/register'">sign up</button>
+            <button class = "btn log-in" onclick="location.href='/signin'">log in</button>
+        </div>
+        <!-- end of side navbar -->
+
+        <!-- fullscreen modal -->
+        <div id = "modal"></div>
+        <!-- end of fullscreen modal -->
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <h2 style="color: red; text-align: center;">{{msg}}</h2>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="login-body">
+            <div class="container">
+                <div class="title">Registration</div>
+                <div class="content">
+                    
+                <form action="#" method="post">
+                    <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" placeholder="Enter your name" id="fullName" name="fullName" value="{{request.form.fullName}}" size="30" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" placeholder="Enter your email" id="email" name="email" value="{{request.form.email}}" size="30" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" placeholder="Enter Password" id="password" name="password" value="{{request.form.password}}" size="64" required>
+                    </div>
+                    
+                    <!--<div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" placeholder="Enter Password" id="pwd2" name="pwd2" required>
+                    </div>  -->
+                    
+                    </div>
+
+                    <div class="button">
+                    <input type="submit" value="Register">
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+        <script src="../static/js/script.js"></script>
+        </body>
+</html>
