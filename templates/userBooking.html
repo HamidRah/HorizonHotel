@@ -1,0 +1,40 @@
+<!-- Hamidur Rahman: 20009146 -->
+{% extends 'userPage.html' %}
+
+
+{% block extra %}
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Reservation ID</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Room Type</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Price</th>
+            <th>Number of People</th>
+            <th>Cancel</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for resItem in resData %}
+                    <tr>
+                        <td>{{resItem[0]}}</td>
+                        <td>{{resItem[1]}}</td>
+                        <td>{{resItem[2]}}</td>
+                        <td>{{resItem[3]}}</td>
+                        <td>{{resItem[4]}}</td>
+                        <td>{{resItem[5]}}</td>
+                        <td>£{{resItem[6]}}</td>
+                        <td>{{resItem[7]}}</td>
+                <form action="{{url_for('cancelBooking', cancelResID=resItem[0])}}" method="post">
+                        <td><div class="resList"><input type="submit" value="DELETE"></div></td>
+                    </tr>
+                </form>
+            {% endfor %}
+        <tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!-- Hamidur Rahman: 20009146 -->
+{% extends 'userPage.html' %}
+
+{% block extra %}
+    <form class="addhotel-form" action="/admin/addsuccess" method="post">
+        <div class = "form-item">
+            <h1>Enter the city:</h1>
+            <input type="text" placeholder="Enter the city" id="hotelCity" name="hotelCity" value="{{request.form.hotelCity}}" size="64" required>
+        </div>
+        <div class = "form-item">
+            <h1>Enter no. of rooms:</h1>
+            <input type="number" placeholder="Enter no. of rooms" id="noofRooms" name="noofRooms" value="{{request.form.noofRooms}}" min="10" max="999" required>
+        </div>
+        <div class = "form-item">
+            <h1>Enter peak price (Standard Room):</h1>
+            <input type="number" placeholder="Enter peak price" id="peakPrice" name="peakPrice" value="{{request.form.peakPrice}}" min="10" max="999" required>
+        </div>
+        <div class = "form-item">
+            <h1>Enter off-peak price (Standard Room):</h1>
+            <input type="number" placeholder="Enter off-peak price" id="offpeakPrice" name="offpeakPrice" value="{{request.form.offpeakPrice}}" min="10" max="999" required>
+        </div>
+        <div class = "submit-form-item">
+            <input type="submit" value="Add Hotel">
+        </div>
+    </form>
+{% endblock %}

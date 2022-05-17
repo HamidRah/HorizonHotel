@@ -1,0 +1,32 @@
+<!-- Hamidur Rahman: 20009146 -->
+{% extends 'userPage.html' %}
+
+{% block extra %}
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>City</th>
+            <th>Number of Rooms</th>
+            <th>Peak Price</th>
+            <th>Off-peak Price</th>
+            <th>Update</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for hotelItem in hotelData %}
+                    <tr>
+                        <td>{{hotelItem[0]}}</td>
+                        <td>{{hotelItem[1]}}</td>
+                        <td>£{{hotelItem[2]}}</td>
+                        <td>£{{hotelItem[3]}}</td>
+                    <form action="{{url_for('adminTools.updateHotelInput', oldHotelCity=hotelItem[0])}}">
+                        <td><div class="updateList"><input type="submit" value="UPDATE"></div></td>
+                    </tr>
+                </form>
+            {% endfor %}
+        <tbody>
+    </table>
+</div>
+{% endblock %}
