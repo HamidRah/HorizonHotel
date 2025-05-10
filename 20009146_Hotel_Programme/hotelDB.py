@@ -1,12 +1,16 @@
 # Hamidur Rahman: 20009146
+import os
+from dotenv import load_dotenv       
 import mysql.connector
 from mysql.connector import errorcode
- 
-# MYSQL CONFIG VARIABLES
-hostname    = "127.0.0.1"
-username    = "root"
-passwd  = "Password"
-db = "horizonhotel"
+
+load_dotenv()                       
+
+# pull credentials from the environment
+hostname = os.getenv("DB_HOST", "127.0.0.1")    
+username = os.getenv("DB_USER", "root")
+passwd   = os.getenv("DB_PASSWORD")              
+db       = os.getenv("DB_NAME", "horizonhotel")
 
 def getConnection():    
     try:
